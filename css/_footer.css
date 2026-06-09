@@ -1,0 +1,89 @@
+/* ============================================================
+   _footer.css – style stopki i mobilnego paska CTA
+   ============================================================ */
+
+.footer {
+  padding: 4rem 5% 2rem;
+  border-top: 1px solid var(--color-border);
+  position: relative;
+  z-index: 1;
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer__brand-logo {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.3rem;
+  letter-spacing: -0.03em;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.75rem;
+}
+
+.footer__brand-tagline { font-size: 0.875rem; color: var(--color-text-muted); line-height: 1.6; max-width: 240px; }
+
+.footer__col-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: 1rem;
+}
+
+.footer__col-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+
+.footer__col-links a { font-size: 0.875rem; color: var(--color-text-muted); text-decoration: none; transition: color 0.2s; }
+.footer__col-links a:hover { color: var(--color-text); }
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer__copyright { font-size: 0.8rem; color: var(--color-text-dim); }
+
+.footer__legal-links { display: flex; gap: 1.5rem; }
+.footer__legal-links a { font-size: 0.8rem; color: var(--color-text-dim); text-decoration: none; transition: color 0.2s; }
+.footer__legal-links a:hover { color: var(--color-text-muted); }
+
+/* ── Mobilny pasek CTA ──────────────────────────────────── */
+.mobile-cta-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 98;
+  padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+  background: rgba(6, 8, 16, 0.92);
+  border-top: 1px solid var(--color-border);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  gap: 0.75rem;
+}
+
+.mobile-cta-bar__btn {
+  flex: 1;
+  text-align: center;
+  padding: 0.85rem 0.5rem;
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.mobile-cta-bar__btn--primary { background: var(--gradient-button); color: white; box-shadow: 0 0 24px rgba(91, 110, 248, 0.3); }
+.mobile-cta-bar__btn--outline { background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border-hover); display: flex; align-items: center; justify-content: center; gap: 0.4rem; }

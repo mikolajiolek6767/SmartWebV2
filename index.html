@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SmartWeb – Nowoczesne strony internetowe dla firm. Realizacja w 2–3 dni roboczych. Strony od 500 zł.">
+  <meta name="keywords" content="strony internetowe, strony www, branding online, SmartWeb">
+  <meta name="author" content="SmartWeb">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235b6ef8'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='sans-serif' font-weight='700' font-size='13' fill='white'%3ESW%3C/text%3E%3C/svg%3E">
+  <meta property="og:title" content="SmartWeb – Nowoczesne Strony Internetowe">
+  <meta property="og:description" content="Tworzymy strony internetowe, które pomagają firmom rosnąć szybciej.">
+  <meta property="og:type" content="website">
+  <title>SmartWeb – Nowoczesne Strony Internetowe dla Twojego Biznesu</title>
+
+  <!-- Fonty -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <!-- Style -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Kursor niestandardowy (widoczny tylko na desktop) -->
+  <div class="cursor-dot"  id="cursor-dot"  aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Tło: orby świetlne -->
+  <div class="bg-orb bg-orb--blue"   aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--purple" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--cyan"   aria-hidden="true"></div>
+
+  <!-- Szum tekstury tła -->
+  <div class="bg-noise-overlay" aria-hidden="true"></div>
+
+  <!-- Powiadomienie o wysłaniu formularza -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- ═══════════════════════════════════════════════════════
+       NAWIGACJA
+       ═══════════════════════════════════════════════════════ -->
+  <nav class="nav" id="navbar" role="navigation" aria-label="Główna nawigacja">
+    <a class="nav__logo" href="#hero">SmartWeb</a>
+
+    <ul class="nav__links">
+      <li><a href="#services">Usługi</a></li>
+      <li><a href="#portfolio">Realizacje</a></li>
+      <li><a href="#how">Jak działamy</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+
+    <a class="nav__cta" href="#contact">Rozpocznij projekt →</a>
+
+    <button
+      class="nav__hamburger"
+      id="hamburger"
+      aria-label="Otwórz menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
+      <span class="nav__hamburger-bar"></span>
+      <span class="nav__hamburger-bar"></span>
+      <span class="nav__hamburger-bar"></span>
+    </button>
+  </nav>
+
+  <!-- Menu mobilne -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobilne">
+    <a class="mobile-nav__link" href="#services">Usługi</a>
+    <a class="mobile-nav__link" href="#portfolio">Realizacje</a>
+    <a class="mobile-nav__link" href="#how">Jak działamy</a>
+    <a class="mobile-nav__link" href="#faq">FAQ</a>
+    <a class="mobile-nav__link" href="#contact">Kontakt</a>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEKCJA: HERO
+       ═══════════════════════════════════════════════════════ -->
+  <section class="hero" id="hero" aria-label="Nagłówek strony">
+    <div class="hero__grid-bg" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <div class="hero__badge">
+        <div class="hero__badge-dot" aria-hidden="true"></div>
+        Agencja AI nowej generacji · 2026
+      </div>
+
+      <h1 class="hero__title">
+        Tworzymy strony internetowe, które <span class="hero__title-gradient">pomagają firmom</span> rosnąć szybciej.
+      </h1>
+
+      <p class="hero__subtitle">
+        Nowoczesne strony www zaprojektowane pod konwersję i SEO.
+        Dla przedsiębiorców, którzy chcą więcej klientów.
+      </p>
+
+      <div class="hero__buttons">
+        <a href="#contact" class="btn-primary">🚀 Zamów stronę</a>
+        <a href="#contact" class="btn-secondary">📞 Umów konsultację</a>
+      </div>
+
+      <div class="hero__speed-badge">
+        <span class="hero__speed-pill">⚡ 2–3 dni robocze</span>
+        Realizacja od momentu zlecenia
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEKCJA: USŁUGI
+       ═══════════════════════════════════════════════════════ -->
+  <section class="services section-pad" id="services">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-label reveal">Nasze usługi</div>
+        <h2 class="section-title reveal reveal--delay-1">
+          Prosta oferta,<br><span class="text-gradient">konkretne efekty</span>
+        </h2>
+        <p class="section-subtitle reveal reveal--delay-2">
+          Strony, które wyglądają premium, ładują się błyskawicznie
+          i zamieniają odwiedzających w klientów.
+        </p>
+      </div>
+
+      <div class="services__grid">
+
+        <!-- Karta: Strony internetowe -->
+        <article class="service-card reveal">
+          <div class="service-card__icon" aria-hidden="true">🌐</div>
+          <h3 class="service-card__title">Strony internetowe</h3>
+          <p class="service-card__description">
+            Premium strony www zaprojektowane z myślą o konwersji. Mobile-first,
+            zoptymalizowane pod SEO, gotowe w 2–3 dni. Idealne dla trenerów, barberów,
+            dietetyków, restauracji i firm usługowych.
+          </p>
+          <div class="service-card__price">
+            <span class="service-card__price-from">od</span>
+            <span class="service-card__price-amount">500</span>
+            <span class="service-card__price-currency">zł</span>
+          </div>
+          <a href="#contact" class="service-card__cta">Zamów stronę →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEKCJA: O NAS
+       ═══════════════════════════════════════════════════════ -->
+  <section class="about section-pad" id="about">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-label reveal">O nas</div>
+        <h2 class="section-title reveal reveal--delay-1">
+          Dwóch pasjonatów,<br><span class="text-gradient">jeden cel</span>
+        </h2>
+        <p class="section-subtitle reveal reveal--delay-2" style="margin: 0 auto">
+          Jesteśmy dwójką zapaleńców z Kielc — projektujemy strony internetowe,
+          które realnie pomagają biznesom rosnąć. Każdy projekt traktujemy jak własny.
+        </p>
+      </div>
+
+      <div class="about__stats">
+        <div class="about__stat reveal">
+          <span class="about__stat-number">2–3</span>
+          <span class="about__stat-label">dni realizacji</span>
+        </div>
+        <div class="about__stat reveal reveal--delay-1">
+          <span class="about__stat-number">100%</span>
+          <span class="about__stat-label">zaangażowania</span>
+        </div>
+        <div class="about__stat reveal reveal--delay-2">
+          <span class="about__stat-number">24h</span>
+          <span class="about__stat-label">czas odpowiedzi</span>
+        </div>
+        <div class="about__stat reveal reveal--delay-3">
+          <span class="about__stat-number">2026</span>
+          <span class="about__stat-label">rok założenia</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEKCJA: REALIZACJE
+       ═══════════════════════════════════════════════════════ -->
+  <section class="portfolio section-pad" id="portfolio">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-label reveal">Realizacje</div>
+        <h2 class="section-title reveal reveal--delay-1">
+          Nasze <span class="text-gradient">projekty</span>
+        </h2>
+      </div>
+
+      <div class="portfolio__first-client reveal">
+        <span class="portfolio__badge">🚀 Oferta startowa</span>
+        <h3 class="portfolio__fc-title">Bądź jednym z naszych pierwszych klientów</h3>
+        <p class="portfolio__fc-text">
+          Tworzymy swoje pierwsze portfolio i zależy nam, żeby każda realizacja robiła wrażenie.
+          Pierwsze 3 projekty realizujemy w specjalnej cenie startowej —
+          Twoja strona to nasza wizytówka, dlatego dajemy z siebie 200%.
+        </p>
+        <div class="portfolio__perks">
+          <span class="portfolio__perk">✅ Priorytetowa realizacja</span>
+          <span class="portfolio__perk">✅ Specjalna cena startowa</span>
+          <span class="portfolio__perk">✅ Bezpłatne poprawki przez 30 dni</span>
+        </div>
+        <a href="#contact" class="btn-primary">Zarezerwuj miejsce →</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEKCJA: OPINIE KLIENTÓW
+       ═══════════════════════════════════════════════════════ -->
+  <section class="reviews section-pad" id="reviews">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-label reveal">Opinie</div>
+        <h2 class="section-title reveal reveal--delay-1">
+          Co mówią <span class="text-gradient">nasi klienci</span>
+        </h2>
+        <p class="section-subtitle reveal reveal--delay-2">
+          Dołącz do grona zadowolonych klientów SmartWeb
+        </p>
+      </div>
+
+      <div class="reviews__inner">
+
+        <!-- Przewijalna lista opinii – wypełniana przez JS z localStorage -->
+        <div class="reviews__scroll-container reveal reveal--delay-1">
+          <div class="reviews__list" id="reviews-list"></div>
+        </div>
+
+        <!-- Formularz dodawania opinii -->
+        <div class="review-form-wrapper reveal reveal--delay-2">
+          <h3 class="review-form__title">Zostaw swoją opinię</h3>
+          <form class="review-form" id="review-form" novalidate>
+
+            <div class="review-form__row">
+              <div class="form-field">
+                <label class="form-label" for="review-name-input">Twoje imię</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="review-name-input"
+                  placeholder="Jan Kowalski"
+                  maxlength="50"
+                  autocomplete="given-name"
+                >
+              </div>
+              <div class="form-field">
+                <label class="form-label">Ocena</label>
+                <div class="star-rating-input" id="star-rating-input" role="group" aria-label="Wybierz ocenę">
+                  <button type="button" class="star-btn" data-value="1" aria-label="1 gwiazdka">☆</button>
+                  <button type="button" class="star-btn" data-value="2" aria-label="2 gwiazdki">☆</button>
+                  <button type="button" class="star-btn" data-value="3" aria-label="3 gwiazdki">☆</button>
+                  <button type="button" class="star-btn" data-value="4" aria-label="4 gwiazdki">☆</button>
+                  <button type="button" class="star-btn" data-value="5" aria-label="5 gwiazdek">☆</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="review-message-input">Twoja opinia</label>
+              <textarea
+                class="form-textarea"
+                id="review-message-input"
+                placeholder="Podziel się swoją opinią o naszej usłudze..."
+                rows="3"
+                maxlength="300"
+              ></textarea>
+            </div>
+
+            <button type="button" class="form-submit" id="review-submit">
+              Dodaj opinię
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEKCJA: JAK DZIAŁAMY
+       ═══════════════════════════════════════════════════════ -->
+  <section class="steps section-pad" id="how">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-label reveal">Proces</div>
+        <h2 class="section-title reveal reveal--delay-1">Jak <span class="text-gradient">działamy</span></h2>
+        <p class="section-subtitle reveal reveal--delay-2" style="margin: 0 auto;">
+          Cztery kroki od rozmowy do gotowego projektu. Szybko, przejrzyście, bez zbędnych formalności.
+        </p>
+      </div>
+
+      <ol class="steps__grid" aria-label="Etapy współpracy">
+
+        <li class="step reveal">
+          <div class="step__number" aria-hidden="true">01</div>
+          <h3 class="step__title">Analiza biznesu</h3>
+          <p class="step__description">
+            Bezpłatna konsultacja, na której poznajemy Twój biznes, cele i grupę docelową.
+            Identyfikujemy szanse wzrostu.
+          </p>
+        </li>
+
+        <li class="step reveal reveal--delay-1">
+          <div class="step__number" aria-hidden="true">02</div>
+          <h3 class="step__title">Projekt i strategia</h3>
+          <p class="step__description">
+            Tworzymy projekt graficzny i strategię dopasowaną do Twojej branży i klientów.
+            Akceptujesz przed realizacją.
+          </p>
+        </li>
+
+        <li class="step reveal reveal--delay-2">
+          <div class="step__number" aria-hidden="true">03</div>
+          <h3 class="step__title">Wdrożenie</h3>
+          <p class="step__description">
+            Kodujemy, wdrażamy i testujemy. Twoja gotowa strona w <strong class="step__highlight">zaledwie 2–3 dni robocze</strong>.
+          </p>
+        </li>
+
+        <li class="step reveal reveal--delay-3">
+          <div class="step__number" aria-hidden="true">04</div>
+          <h3 class="step__title">Skalowanie biznesu</h3>
+          <p class="step__description">
+            Monitorujemy wyniki, optymalizujemy i wdrażamy kolejne rozwiązania,
+            by Twój biznes rósł bez ograniczeń.
+          </p>
+        </li>
+
+      </ol>
+    </div>
+  </section>
+
+
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEKCJA: FAQ
+       ═══════════════════════════════════════════════════════ -->
+  <section class="faq section-pad" id="faq">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="section-label reveal">FAQ</div>
+        <h2 class="section-title reveal reveal--delay-1">Najczęstsze <span class="text-gradient">pytania</span></h2>
+        <p class="section-subtitle reveal reveal--delay-2" style="margin: 0 auto;">
+          Masz pytania? Mamy odpowiedzi. Jeśli nie znajdziesz tu tego, czego szukasz – napisz do nas!
+        </p>
+      </div>
+
+      <div class="faq__list reveal" role="list">
+
+        <div class="faq__item" role="listitem">
+          <div class="faq__question" tabindex="0" role="button" aria-expanded="false">
+            <span>Ile kosztuje strona internetowa?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq__answer">
+            <p class="faq__answer-text">
+              Strona internetowa zaczyna się już od 500 zł.
+              Cena końcowa zależy od liczby podstron, funkcjonalności i indywidualnych wymagań projektu.
+              Wycenę przygotowujemy bezpłatnie po krótkiej rozmowie.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <div class="faq__question" tabindex="0" role="button" aria-expanded="false">
+            <span>Jak szybko mogę mieć gotową stronę?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq__answer">
+            <p class="faq__answer-text">
+              Realizujemy projekty w ekspresowym tempie – standardowy czas to zaledwie 2–3 dni robocze
+              od momentu zatwierdzenia projektu i przekazania materiałów. To jeden z naszych największych atutów
+              – żaden przestój w Twoim biznesie.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <div class="faq__question" tabindex="0" role="button" aria-expanded="false">
+            <span>Dla kogo tworzycie strony?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq__answer">
+            <p class="faq__answer-text">
+              Specjalizujemy się w obsłudze młodych przedsiębiorców, trenerów personalnych, dietetyków,
+              barberów, restauracji, firm usługowych i twórców internetowych.
+              Jeśli masz pomysł na biznes – my mamy narzędzia, żeby go pokazać światu.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <div class="faq__question" tabindex="0" role="button" aria-expanded="false">
+            <span>Czy strona będzie dostosowana do urządzeń mobilnych?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq__answer">
+            <p class="faq__answer-text">
+              Tak, każda strona, którą tworzymy, jest zaprojektowana w podejściu mobile-first.
+              Oznacza to, że wyglądają i działają idealnie na smartfonach, tabletach i komputerach.
+              W dzisiejszych czasach to absolutna podstawa.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <div class="faq__question" tabindex="0" role="button" aria-expanded="false">
+            <span>Czy zajmujecie się hostingiem i domeną?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq__answer">
+            <p class="faq__answer-text">
+              Nie – hosting i domena to usługi zewnętrzne, które kupujesz samodzielnie bezpośrednio od dostawcy.
+              To Twoja własność i masz nad tym pełną kontrolę. Poniżej prosty poradnik jak to zrobić:
+            </p>
+            <p class="faq__answer-text">
+              <strong class="faq__answer-bold">1. Kup domenę (ok. 50–80 zł/rok)</strong><br>
+              Wejdź na <a class="faq__answer-link" href="https://www.home.pl/domeny/" target="_blank" rel="noopener">home.pl</a>
+              lub <a class="faq__answer-link" href="https://www.domeny.pl" target="_blank" rel="noopener">domeny.pl</a>,
+              wpisz wymyśloną nazwę (np. <em>twojafirma.pl</em>) i sprawdź dostępność.
+              Końcówka .pl kosztuje ok. 50 zł/rok, .com ok. 80 zł/rok.
+            </p>
+            <p class="faq__answer-text">
+              <strong class="faq__answer-bold">2. Kup hosting (ok. 100–150 zł/rok)</strong><br>
+              Na <a class="faq__answer-link" href="https://www.home.pl/hosting/" target="_blank" rel="noopener">home.pl</a>
+              wybierz plan <strong class="faq__answer-bold">„Hosting Start"</strong>.
+              Łączny koszt to ok. <strong class="faq__answer-bold">150–220 zł rocznie</strong>.
+            </p>
+            <p class="faq__answer-text">
+              <strong class="faq__answer-bold">3. Wgraj stronę samodzielnie</strong><br>
+              Po zakupie dostaniesz e-mail z dostępem do panelu. Zaloguj się, wejdź w
+              <strong class="faq__answer-bold">Menedżer plików → public_html</strong>,
+              kliknij „Prześlij" i wgraj plik <strong class="faq__answer-bold">index.html</strong> który od nas otrzymasz.
+            </p>
+            <span class="faq__answer-tip">
+              💡 Masz pytania przy zakupie lub wgrywaniu? Zadzwoń do nas – chętnie przeprowadzimy Cię przez cały proces telefonicznie.
+            </span>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <div class="faq__question" tabindex="0" role="button" aria-expanded="false">
+            <span>Czy mogę samodzielnie edytować treść na stronie?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq__answer">
+            <p class="faq__answer-text">
+              Oczywiście! Wdrażamy strony z wygodnym panelem zarządzania treścią, dzięki któremu możesz
+              samodzielnie aktualizować teksty i zdjęcia – bez żadnej wiedzy technicznej.
+              Jeśli wolisz, możemy też zajmować się tym za Ciebie.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq__item" role="listitem">
+          <div class="faq__question" tabindex="0" role="button" aria-expanded="false">
+            <span>Jak wygląda płatność za projekt?</span>
+            <span class="faq__icon" aria-hidden="true">+</span>
+          </div>
+          <div class="faq__answer">
+            <p class="faq__answer-text">
+              Standardowo pracujemy w systemie: 50% zaliczki przed rozpoczęciem prac,
+              50% po oddaniu gotowego projektu. Wystawiamy fakturę VAT. W przyszłości planujemy
+              wdrożenie wygodnych płatności online bezpośrednio na stronie.
+            </p>
+          </div>
+        </div>
+
+      </div><!-- /.faq__list -->
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       SEKCJA: KONTAKT
+       ═══════════════════════════════════════════════════════ -->
+  <section class="contact section-pad" id="contact">
+    <div class="container">
+      <div class="contact__layout">
+
+        <!-- Lewa kolumna: info kontaktowe -->
+        <div class="contact__info reveal">
+          <div class="section-label">Kontakt</div>
+          <h2 class="contact__info-title">
+            Zacznijmy<br><span class="text-gradient">razem rosnąć</span>
+          </h2>
+          <p class="contact__info-text">
+            Umów bezpłatną konsultację i dowiedz się, jak możemy pomóc Twojemu biznesowi.
+            Odpowiadamy w ciągu 24 godzin.
+          </p>
+
+          <div class="contact__social-buttons">
+            <a
+              href="https://www.instagram.com/topsmartweb?igsh=MTg3NWhicm4xZjFkMw%3D%3D&utm_source=qr"
+              target="_blank"
+              rel="noopener"
+              class="social-btn social-btn--instagram"
+              aria-label="Napisz do nas na Instagramie"
+            >
+              <!-- Instagram SVG -->
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+              </svg>
+              Instagram
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@topsmartweb"
+              target="_blank"
+              rel="noopener"
+              class="social-btn social-btn--tiktok"
+              aria-label="Odwiedź nas na TikToku"
+            >
+              <!-- TikTok SVG -->
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.28 8.28 0 004.84 1.56V6.84a4.85 4.85 0 01-1.07-.15z"/>
+              </svg>
+              TikTok
+            </a>
+          </div>
+
+          <div class="contact__badges">
+            <div class="contact-badge">
+              <span class="contact-badge__icon" aria-hidden="true">📍</span>
+              Kielce i okolice – możliwe spotkanie osobiste. Pozostałe regiony – praca zdalna.
+            </div>
+            <div class="contact-badge">
+              <span class="contact-badge__icon" aria-hidden="true">📞</span>
+              <a class="contact-badge__link" href="tel:+48725220922">+48 725 220 922</a>
+            </div>
+            <div class="contact-badge">
+              <span class="contact-badge__icon" aria-hidden="true">📞</span>
+              <a class="contact-badge__link" href="tel:+48511683573">+48 511 683 573</a>
+            </div>
+            <div class="contact-badge">
+              <span class="contact-badge__icon" aria-hidden="true">⚡</span>
+              Odpowiedź w ciągu 24h
+            </div>
+            <div class="contact-badge">
+              <span class="contact-badge__icon" aria-hidden="true">🚀</span>
+              Realizacja w 2–3 dni robocze
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Prawa kolumna: formularz -->
+        <div class="reveal reveal--delay-2">
+          <form class="contact-form" id="contact-form" novalidate>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="field-name">Imię i nazwisko</label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="field-name"
+                  name="name"
+                  placeholder="Jan Kowalski"
+                  autocomplete="name"
+                >
+                <span class="form-error" id="error-name" aria-live="polite"></span>
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="field-email">Email</label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="field-email"
+                  name="email"
+                  placeholder="jan@firma.pl"
+                  autocomplete="email"
+                  inputmode="email"
+                >
+                <span class="form-error" id="error-email" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="field-type">Branża / Rodzaj biznesu</label>
+              <select class="form-select" id="field-type" name="branza">
+                <option value="">Wybierz...</option>
+                <option>Trener personalny</option>
+                <option>Dietetyk</option>
+                <option>Barber / Salon</option>
+                <option>Restauracja / Gastronomia</option>
+                <option>Firma usługowa</option>
+                <option>Twórca internetowy / Creator</option>
+
+                <option>Inne</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="field-service">Co Cię interesuje?</label>
+              <select class="form-select" id="field-service" name="usluga">
+                <option value="">Wybierz usługę...</option>
+                <option>Strona internetowa (od 500 zł)</option>
+                <option>Bezpłatna konsultacja</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="field-message">Wiadomość</label>
+              <textarea
+                class="form-textarea"
+                id="field-message"
+                name="wiadomosc"
+                placeholder="Opowiedz nam o swoim projekcie. Czego potrzebujesz? Jaki masz budżet i termin?"
+              ></textarea>
+            </div>
+
+            <button class="form-submit" type="button" id="form-submit">
+              🚀 Rozpocznij projekt
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       STOPKA
+       ═══════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <div class="footer__brand-logo">SmartWeb</div>
+          <p class="footer__brand-tagline">
+            Nowoczesne strony internetowe dla ambitnych przedsiębiorców.
+            Realizacja w 2–3 dni robocze.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer__col-title">Usługi</h4>
+          <ul class="footer__col-links">
+            <li><a href="#services">Strony internetowe</a></li>
+            <li><a href="#contact">Bezpłatna konsultacja</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__col-title">Firma</h4>
+          <ul class="footer__col-links">
+            <li><a href="#about">O nas</a></li>
+            <li><a href="#portfolio">Realizacje</a></li>
+            <li><a href="#how">Jak działamy</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__col-title">Kontakt</h4>
+          <ul class="footer__col-links">
+            <li><a href="tel:+48725220922">+48 725 220 922</a></li>
+            <li><a href="tel:+48511683573">+48 511 683 573</a></li>
+            <li><a href="https://www.instagram.com/topsmartweb?igsh=MTg3NWhicm4xZjFkMw%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram / Messenger</a></li>
+            <li><a href="https://www.tiktok.com/@topsmartweb" target="_blank" rel="noopener">TikTok @topsmartweb</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">© 2026 SmartWeb. Wszelkie prawa zastrzeżone.</p>
+        <nav class="footer__legal-links" aria-label="Linki prawne">
+          <a href="#">Polityka prywatności</a>
+          <a href="#">Regulamin</a>
+          <a href="#">RODO</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════════════════════
+       MOBILNY PASEK CTA (widoczny tylko na telefonach)
+       ═══════════════════════════════════════════════════════ -->
+  <div class="mobile-cta-bar" id="mobile-cta-bar" aria-label="Szybki kontakt">
+    <a href="tel:+48725220922" class="mobile-cta-bar__btn mobile-cta-bar__btn--outline" aria-label="Zadzwoń do nas">
+      <!-- Ikona telefonu -->
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
+      Zadzwoń
+    </a>
+
+    <a href="https://www.instagram.com/topsmartweb?igsh=MTg3NWhicm4xZjFkMw%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="mobile-cta-bar__btn mobile-cta-bar__btn--outline" aria-label="Instagram">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      </svg>
+      IG
+    </a>
+
+    <a href="https://www.tiktok.com/@topsmartweb" target="_blank" rel="noopener" class="mobile-cta-bar__btn mobile-cta-bar__btn--outline" aria-label="TikTok">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.73a8.28 8.28 0 004.84 1.56V6.84a4.85 4.85 0 01-1.07-.15z"/>
+      </svg>
+      TikTok
+    </a>
+
+    <a href="#contact" class="mobile-cta-bar__btn mobile-cta-bar__btn--primary">
+      🚀 Zamów
+    </a>
+  </div>
+
+
+  <!-- JavaScript – ładowany na końcu dla szybszego renderowania -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>

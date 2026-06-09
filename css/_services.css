@@ -1,0 +1,108 @@
+/* ============================================================
+   _services.css – style sekcji usług (karty)
+   ============================================================ */
+
+.services { background: var(--color-bg-section); }
+
+.services__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 520px);
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.service-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card-lg);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  cursor: default;
+  /* Karta nigdy nie wychodzi poza siatkę */
+  min-width: 0;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: var(--gradient-button);
+  transition: opacity 0.4s;
+  z-index: 0;
+  -webkit-mask-image: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black 0%, transparent 70%);
+          mask-image: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), black 0%, transparent 70%);
+}
+
+.service-card:hover         { border-color: rgba(91, 110, 248, 0.4); transform: translateY(-6px); box-shadow: var(--shadow-accent); }
+.service-card:hover::before { opacity: 0.07; }
+.service-card:active        { transform: translateY(-2px); }
+.service-card > *           { position: relative; z-index: 1; }
+
+.service-card__icon {
+  width: 60px;
+  height: 60px;
+  background: rgba(91, 110, 248, 0.1);
+  border: 1px solid rgba(91, 110, 248, 0.2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  transition: background 0.3s, border-color 0.3s;
+  flex-shrink: 0;
+}
+
+.service-card:hover .service-card__icon { background: rgba(91, 110, 248, 0.2); border-color: rgba(91, 110, 248, 0.4); }
+
+.service-card__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+  overflow-wrap: break-word;
+}
+
+.service-card__description {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  overflow-wrap: break-word;
+}
+
+.service-card__price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  margin-top: 1.75rem;
+}
+
+.service-card__price-from     { font-size: 0.78rem; color: var(--color-text-dim); text-transform: uppercase; letter-spacing: 0.06em; }
+.service-card__price-amount   { font-family: var(--font-heading); font-weight: 800; font-size: 2rem; letter-spacing: -0.04em; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.service-card__price-currency { font-size: 1rem; color: var(--color-text-muted); font-weight: 400; }
+
+.service-card__cta {
+  display: block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  background: rgba(91, 110, 248, 0.1);
+  border: 1px solid rgba(91, 110, 248, 0.25);
+  border-radius: 10px;
+  color: var(--color-accent-soft);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.service-card__cta:hover { background: rgba(91, 110, 248, 0.2); border-color: rgba(91, 110, 248, 0.5); }

@@ -1,0 +1,29 @@
+/* ============================================================
+   style.css – główny plik CSS
+   
+   Ten plik TYLKO łączy wszystkie osobne pliki CSS w jeden.
+   Każda sekcja ma swój własny plik – tak jak zalecił informatyk:
+   "Każdy styl powinien być przy widoku"
+   
+   Kolejność importów ma znaczenie!
+   ============================================================ */
+
+/* 1. Zmienne i reset – muszą być pierwsze */
+@import '_variables.css';
+
+/* 2. Elementy tła */
+@import '_background.css';
+
+/* 3. Nawigacja */
+@import '_navbar.css';
+
+/* 4. Sekcje strony – każda w osobnym pliku */
+@import '_hero.css';
+@import '_services.css';
+@import '_steps-testimonials.css';
+@import '_faq.css';
+@import '_contact.css';
+@import '_footer.css';
+
+/* 5. Responsywność – na końcu, żeby nadpisywała style sekcji */
+@import '_responsive.css';

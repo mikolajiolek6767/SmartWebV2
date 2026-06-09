@@ -1,0 +1,153 @@
+/* ============================================================
+   _responsive.css – responsywność (tablet, telefon, mały telefon)
+   ============================================================ */
+
+/* ── Tablet (≤ 900px) ───────────────────────────────────── */
+@media (max-width: 900px) {
+  .nav__links     { display: none; }
+  .nav__cta       { display: none; }
+  .nav__hamburger { display: flex; }
+
+  body { cursor: auto; }
+  .cursor-dot, .cursor-ring { display: none; }
+  .bg-orb { display: none; }
+
+  .services__grid     { max-width: 520px; margin: 0 auto; }
+  .about__stats       { grid-template-columns: repeat(2, 1fr); }
+  .steps__grid        { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .steps__grid::before { display: none; }
+  .testimonials__grid  { grid-template-columns: 1fr; }
+  .review-form__row    { grid-template-columns: 1fr; }
+  .contact__layout    { grid-template-columns: 1fr; gap: 2.5rem; }
+  .form-row           { grid-template-columns: 1fr; }
+  .footer__grid       { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .section-pad        { padding: 80px 0; }
+}
+
+/* ── Telefon (≤ 600px) ──────────────────────────────────── */
+@media (max-width: 600px) {
+  html         { font-size: 15px; }
+  .section-pad { padding: 64px 0; }
+  .container   { padding: 0 4%; }
+
+  /* Mobilny pasek CTA */
+  .mobile-cta-bar { display: flex; }
+  .contact { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
+  .toast   { bottom: calc(5rem + env(safe-area-inset-bottom)); right: 1rem; left: 1rem; font-size: 0.85rem; }
+
+  /* Nawigacja */
+  .nav       { height: 60px; padding: 0 4%; }
+  .nav__logo { font-size: 1.2rem; }
+
+  /* Menu mobilne */
+  .mobile-nav__link { font-size: 1.6rem; padding: 0.25rem 0; }
+  .mobile-nav       { gap: 1.5rem; }
+
+  /* Hero – najważniejsze poprawki */
+  .hero              { padding: 90px 4% 80px; }
+  .hero__content     { width: 100%; padding: 0; }
+
+  /* Tytuł hero – mniejszy font, zawijanie tekstu */
+  .hero__title {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
+    line-height: 1.12;
+    margin-bottom: 1.25rem;
+    padding: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .hero__badge {
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    padding: 0.35rem 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero__subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    padding: 0;
+  }
+
+  /* Przyciski hero – pełna szerokość na mobile */
+  .hero__buttons     { flex-direction: column; align-items: center; gap: 0.75rem; padding: 0; }
+  .btn-primary,
+  .btn-secondary     { width: 100%; max-width: 320px; justify-content: center; padding: 1rem 1.5rem; font-size: 1rem; }
+
+  .hero__speed-badge { margin-top: 2rem; font-size: 0.8rem; padding: 0.6rem 1rem; gap: 0.4rem; }
+
+  /* Tytuły sekcji */
+  .section-title    { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .section-subtitle { font-size: 0.95rem; }
+
+  /* Usługi */
+  .services__grid             { max-width: 100%; gap: 1.25rem; }
+  .service-card               { padding: 1.75rem 1.5rem; }
+  .service-card__title        { font-size: 1.1rem; }
+  .service-card__price-amount { font-size: 1.75rem; }
+  .service-card__cta          { font-size: 0.875rem; }
+
+  /* Kroki */
+  .steps__grid       { grid-template-columns: 1fr; gap: 1.25rem; }
+  .step              { text-align: left; display: flex; flex-direction: row; gap: 1rem; align-items: flex-start; }
+  .step__number      { width: 48px; height: 48px; flex-shrink: 0; margin: 0; font-size: 0.9rem; }
+  .step__title       { font-size: 1rem; margin-bottom: 0.3rem; }
+  .step__description { font-size: 0.85rem; }
+
+  /* Stare opinie */
+  .testimonial-card { padding: 1.5rem 1.25rem; }
+
+  /* O nas */
+  .about__stat        { padding: 1.5rem 0.75rem; }
+  .about__stat-number { font-size: 1.75rem; }
+
+  /* Realizacje */
+  .portfolio__first-client { padding: 2rem 1.5rem; }
+  .portfolio__perks         { gap: 0.5rem; }
+  .portfolio__perk          { font-size: 0.82rem; }
+
+  /* Nowe opinie klientów */
+  .reviews__list        { max-height: 320px; }
+  .review-card          { padding: 1.25rem 1rem; }
+  .review-form-wrapper  { padding: 1.75rem 1.25rem; }
+  .review-form__title   { font-size: 1.2rem; }
+
+  /* Mobilny pasek CTA – 4 przyciski */
+  .mobile-cta-bar        { gap: 0.35rem; padding-left: 0.6rem; padding-right: 0.6rem; }
+  .mobile-cta-bar__btn   { font-size: 0.75rem; padding: 0.7rem 0.2rem; gap: 0.2rem; }
+
+  /* FAQ */
+  .faq__list        { margin-top: 2.5rem; }
+  .faq__question    { font-size: 0.875rem; padding: 1rem 1.1rem; }
+  .faq__answer-text { padding: 0 1.1rem; font-size: 0.85rem; }
+
+  /* Kontakt */
+  .contact__info-title     { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+  .contact__info-text      { font-size: 0.95rem; margin-bottom: 1.5rem; }
+  .contact__social-buttons { gap: 0.6rem; }
+  .social-btn              { padding: 0.65rem 1rem; font-size: 0.85rem; flex: 1; justify-content: center; min-width: 120px; }
+  .contact__badges         { gap: 0.6rem; }
+  .contact-badge           { font-size: 0.85rem; }
+  .contact__coming-soon    { font-size: 0.78rem; padding: 0.85rem 1rem; }
+
+  /* Formularz – font 1rem zapobiega auto-zoomowi na iOS */
+  .form-input,
+  .form-select,
+  .form-textarea { font-size: 1rem; padding: 0.9rem 1rem; }
+  .form-submit   { font-size: 1rem; padding: 1rem 1.5rem; }
+
+  /* Stopka */
+  .footer__grid        { grid-template-columns: 1fr; gap: 1.75rem; }
+  .footer__bottom      { flex-direction: column; gap: 1rem; text-align: center; }
+  .footer__legal-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .footer              { padding: 3rem 4% 2rem; }
+}
+
+/* ── Mały telefon (≤ 390px – iPhone SE itp.) ────────────── */
+@media (max-width: 390px) {
+  .hero__title   { font-size: clamp(1.6rem, 9vw, 2.2rem); }
+  .btn-primary,
+  .btn-secondary { font-size: 0.9rem; }
+  .service-card  { padding: 1.5rem 1.25rem; }
+  .hero__badge   { font-size: 0.62rem; }
+}

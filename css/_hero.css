@@ -1,0 +1,156 @@
+/* ============================================================
+   _hero.css – style sekcji hero (główny baner)
+   ============================================================ */
+
+.hero {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 5% 100px;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(91, 110, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 110, 248, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+          mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 900px;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(91, 110, 248, 0.1);
+  border: 1px solid rgba(91, 110, 248, 0.3);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-accent-soft);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  animation: anim-fade-up 0.8s ease both;
+  /* Zapobiega wychodzeniu poza ekran na małych telefonach */
+  max-width: 90vw;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero__badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent-cyan);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: anim-pulse 2s ease infinite;
+}
+
+.hero__title {
+  font-family: var(--font-heading);
+  /* clamp(min, preferred, max) – automatycznie dopasowuje rozmiar do ekranu */
+  font-size: clamp(2rem, 5vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 900px;
+  margin: 0 auto 1.5rem;
+  animation: anim-fade-up 0.8s 0.1s ease both;
+  /* Kluczowe – tekst nigdy nie wychodzi poza ekran */
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  padding: 0 0.5rem;
+}
+
+.hero__title-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* Gradient na inline elemencie musi mieć display:inline-block żeby działał poprawnie */
+  display: inline;
+}
+
+.hero__subtitle {
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  color: var(--color-text-muted);
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.7;
+  animation: anim-fade-up 0.8s 0.2s ease both;
+  padding: 0 0.5rem;
+}
+
+.hero__buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: anim-fade-up 0.8s 0.3s ease both;
+  padding: 0 0.5rem;
+}
+
+.hero__speed-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 3rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border-hover);
+  border-radius: 100px;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  animation: anim-fade-up 0.8s 0.45s ease both;
+  /* Na mobile – zawijaj jeśli za szeroki */
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 90vw;
+}
+
+.hero__speed-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(56, 217, 245, 0.12);
+  border: 1px solid rgba(56, 217, 245, 0.25);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-accent-cyan);
+  white-space: nowrap;
+}
+
+@keyframes anim-fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes anim-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.5; transform: scale(1.5); }
+}

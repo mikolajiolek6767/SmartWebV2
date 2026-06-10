@@ -392,6 +392,61 @@ const MobileCtaBar = {
 };
 
 
+/* ── ExitPopup ───────────────────────────────────────────── */
+const ExitPopup = {
+  SESSION_KEY: 'smartweb_popup_shown',
+  DELAY_MS:    4000,
+
+  init() {
+    if (sessionStorage.getItem(this.SESSION_KEY)) return;
+
+    const overlay  = document.getElementById('exit-popup');
+    const closeBtn = document.getElementById('popup-close');
+    const submitBtn = document.getElementById('popup-submit');
+    const phoneInput = document.getElementById('popup-phone');
+    if (!overlay) return;
+
+    const show = () => {
+      if (sessionStorage.getItem(this.SESSION_KEY)) return;
+      overlay.classList.add('popup-overlay--visible');
+      sessionStorage.setItem(this.SESSION_KEY, '1');
+      phoneInput?.focus();
+    };
+
+    const hide = () => overlay.classList.remove('popup-overlay--visible');
+
+    // Desktop: mysz wychodzi poza górę ekranu
+    setTimeout(() => {
+      document.addEventListener('mouseleave', e => { if (e.clientY < 5) show(); }, { once: true });
+    }, this.DELAY_MS);
+
+    // Mobile: po 20 sekundach na stronie
+    if (window.matchMedia('(hover: none)').matches) {
+      setTimeout(show, 20000);
+    }
+
+    // Zamknięcie
+    closeBtn?.addEventListener('click', hide);
+    overlay.addEventListener('click', e => { if (e.target === overlay) hide(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
+
+    // Wyślij
+    submitBtn?.addEventListener('click', () => {
+      const phone = phoneInput?.value.trim() ?? '';
+      if (!phone) { phoneInput?.focus(); return; }
+      hide();
+      const toast = document.getElementById('toast');
+      if (toast) {
+        toast.textContent = '📞 Dziękujemy! Oddzwonimy wkrótce.';
+        toast.classList.add('toast--visible');
+        setTimeout(() => toast.classList.remove('toast--visible'), 5000);
+      }
+      if (phoneInput) phoneInput.value = '';
+    });
+  },
+};
+
+
 /* ── init ────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   CustomCursor.init();
@@ -404,4 +459,5 @@ document.addEventListener('DOMContentLoaded', () => {
   HeroParallax.init();
   Reviews.init();
   MobileCtaBar.init();
+  ExitPopup.init();
 });

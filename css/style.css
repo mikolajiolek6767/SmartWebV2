@@ -26,5 +26,7 @@
 @import '_contact.css';
 @import '_footer.css';
 
+@import '_popup.css';
+
 /* 5. Responsywność – na końcu, żeby nadpisywała style sekcji */
 @import '_responsive.css';

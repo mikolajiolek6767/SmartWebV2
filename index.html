@@ -875,6 +875,29 @@
   </div>
 
 
+  <!-- Exit intent popup -->
+  <div class="popup-overlay" id="exit-popup" role="dialog" aria-modal="true" aria-label="Specjalna oferta">
+    <div class="popup">
+      <button class="popup__close" id="popup-close" aria-label="Zamknij">✕</button>
+      <span class="popup__emoji">👋</span>
+      <h2 class="popup__title">Hej, nie wychodź jeszcze!</h2>
+      <p class="popup__text">
+        Zostaw swój numer telefonu — zadzwonimy i powiemy jak możemy pomóc Twojemu biznesowi.
+        <strong>Bezpłatna konsultacja, zero zobowiązań.</strong>
+      </p>
+      <input
+        class="popup__input"
+        type="tel"
+        id="popup-phone"
+        placeholder="Twój numer telefonu"
+        inputmode="tel"
+        autocomplete="tel"
+      >
+      <button class="popup__btn" id="popup-submit">📞 Chcę darmową konsultację →</button>
+      <p class="popup__note">Nie spamujemy. Oddzwaniamy w ciągu 24h.</p>
+    </div>
+  </div>
+
   <!-- JavaScript – ładowany na końcu dla szybszego renderowania -->
   <script src="js/main.js"></script>
 

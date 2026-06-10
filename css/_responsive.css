@@ -13,6 +13,7 @@
   .bg-orb { display: none; }
 
   .services__grid     { max-width: 520px; margin: 0 auto; }
+  .for-who__grid      { grid-template-columns: repeat(2, 1fr); }
   .about__stats       { grid-template-columns: repeat(2, 1fr); }
   .steps__grid        { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   .steps__grid::before { display: none; }
@@ -34,6 +35,8 @@
   .mobile-cta-bar { display: flex; }
   .contact { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
   .toast   { bottom: calc(5rem + env(safe-area-inset-bottom)); right: 1rem; left: 1rem; font-size: 0.85rem; }
+
+  .for-who__grid { grid-template-columns: repeat(2, 1fr); gap: 0.875rem; }
 
   /* Nawigacja */
   .nav       { height: 60px; padding: 0 4%; }

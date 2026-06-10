@@ -20,6 +20,7 @@
 /* 4. Sekcje strony – każda w osobnym pliku */
 @import '_hero.css';
 @import '_services.css';
+@import '_for-who.css';
 @import '_steps-testimonials.css';
 @import '_faq.css';
 @import '_contact.css';

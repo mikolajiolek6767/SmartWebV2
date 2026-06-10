@@ -412,9 +412,9 @@ const ExitPopup = {
 
     const hide = () => overlay.classList.remove('popup-overlay--visible');
 
-    // Desktop: kursor opuszcza okno przeglądarki (relatedTarget === null = wyszedł poza okno)
+    // Desktop: kursor opuszcza okno przeglądarki
     document.addEventListener('mouseleave', e => {
-      if (e.relatedTarget === null) show();
+      if (e.clientY <= 0 || e.relatedTarget === null) show();
     }, { once: true });
 
     // Mobile: po 20 sekundach

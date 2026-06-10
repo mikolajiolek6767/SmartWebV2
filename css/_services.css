@@ -76,6 +76,21 @@
   overflow-wrap: break-word;
 }
 
+.service-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.service-card__features li {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
 .service-card__price {
   display: inline-flex;
   align-items: baseline;

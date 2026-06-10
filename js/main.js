@@ -227,7 +227,7 @@ const HeroParallax = {
 
 /* ── Reviews ─────────────────────────────────────────────── */
 const Reviews = {
-  STORAGE_KEY: 'smartweb_reviews_v2',
+  STORAGE_KEY: 'smartweb_reviews_v3',
   ADMIN_KEY:   'smartweb_admin_session',
   ADMIN_PASS:  'SmartWeb2026',
 

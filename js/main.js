@@ -229,7 +229,7 @@ const HeroParallax = {
 const Reviews = {
   STORAGE_KEY: 'smartweb_reviews_v3',
   ADMIN_KEY:   'smartweb_admin_session',
-  ADMIN_PASS:  'SmartWeb2026',
+  ADMIN_HASH:  '41374ccaeb59ae841789f051500122b8092d7df3a6400bf6a529960f5ad478b6',
 
   selectedRating: 0,
   isAdmin:        false,
@@ -265,18 +265,22 @@ const Reviews = {
     });
   },
 
-  _toggleAdmin() {
+  async _toggleAdmin() {
     if (this.isAdmin) {
       this.isAdmin = false;
       sessionStorage.removeItem(this.ADMIN_KEY);
-    } else {
-      const pass = prompt('Hasło:');
-      if (pass === null) return;
-      if (pass !== this.ADMIN_PASS) { this._toast('❌ Błędne hasło.'); return; }
-      this.isAdmin = true;
-      sessionStorage.setItem(this.ADMIN_KEY, '1');
-      this._toast('🔓 Tryb admina aktywny — możesz usuwać opinie.');
+      this._renderAll();
+      this.labelEl?.classList.toggle('section-label--admin', this.isAdmin);
+      return;
     }
+    const pass = prompt('Hasło:');
+    if (pass === null) return;
+    const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pass));
+    const hex  = Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+    if (hex !== this.ADMIN_HASH) { this._toast('❌ Błędne hasło.'); return; }
+    this.isAdmin = true;
+    sessionStorage.setItem(this.ADMIN_KEY, '1');
+    this._toast('🔓 Tryb admina aktywny — możesz usuwać opinie.');
     this._renderAll();
     this.labelEl?.classList.toggle('section-label--admin', this.isAdmin);
   },

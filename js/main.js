@@ -235,13 +235,7 @@ const Reviews = {
   isAdmin:        false,
   _toastTimeout:  null,
 
-  defaultReviews: [
-    { id: 'def_0', name: 'Marek Kowalski',    initials: 'MK', rating: 5, avatarColor: 'c1', text: 'Świetna robota! Strona gotowa w 2 dni, dokładnie jak obiecali. Profesjonalne podejście i kontakt na każdym etapie. Polecam każdemu!' },
-    { id: 'def_1', name: 'Anna Wiśniewska',   initials: 'AW', rating: 5, avatarColor: 'c2', text: 'Niesamowite efekty! Mój salon piękności zyskał zupełnie nowy wizerunek online. Klientki mówią, że strona wygląda lepiej niż u konkurencji.' },
-    { id: 'def_2', name: 'Piotr Nowak',       initials: 'PN', rating: 5, avatarColor: 'c3', text: 'Jako trener personalny potrzebowałem strony szybko przed sezonem. SmartWeb dostarczyło projekt w weekend. Cena uczciwa, jakość premium!' },
-    { id: 'def_3', name: 'Katarzyna Mazur',   initials: 'KM', rating: 5, avatarColor: 'c4', text: 'Profesjonalizm na najwyższym poziomie. Strona dla mojej restauracji przyciąga klientów z Google. Widoczny wzrost rezerwacji już po pierwszym tygodniu.' },
-    { id: 'def_4', name: 'Tomasz Baranowski', initials: 'TB', rating: 5, avatarColor: 'c5', text: 'SmartWeb zbudowało mi stronę dla gabinetu dietetycznego. Piękny design, szybkie ładowanie i – co ważne – nowe zapytania od klientów. Bardzo polecam!' },
-  ],
+  defaultReviews: [],
 
   init() {
     const $ = id => document.getElementById(id);
@@ -289,7 +283,18 @@ const Reviews = {
 
   _renderAll() {
     this.listEl.innerHTML = '';
-    try { JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]').forEach(r => this._renderCard(r)); } catch {}
+    try {
+      const reviews = JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]');
+      if (reviews.length === 0) {
+        this.listEl.innerHTML = `
+          <div class="reviews__empty">
+            <p class="reviews__empty-title">Bądź pierwszy!</p>
+            <p class="reviews__empty-text">Jeszcze nie mamy opinii — jeśli współpracowałeś z nami lub znasz naszą pracę, zostaw krótki komentarz. To dla nas ogromna pomoc na początku drogi. 🙏</p>
+          </div>`;
+      } else {
+        reviews.forEach(r => this._renderCard(r));
+      }
+    } catch {}
   },
 
   _renderCard(r) {

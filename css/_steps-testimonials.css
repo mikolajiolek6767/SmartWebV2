@@ -185,6 +185,40 @@
   padding: 0.4rem 1rem; border-radius: 8px;
 }
 
+.portfolio__spots {
+  display: flex; gap: 0.6rem; justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.portfolio__spot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.portfolio__spot--taken {
+  background: rgba(239, 68, 68, 0.45);
+  border: 1px solid rgba(239, 68, 68, 0.65);
+}
+
+.portfolio__spot--available {
+  background: rgba(52, 211, 153, 0.45);
+  border: 1px solid rgba(52, 211, 153, 0.65);
+  animation: spot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes spot-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.4); }
+  50%       { opacity: 0.7; box-shadow: 0 0 0 5px rgba(52, 211, 153, 0); }
+}
+
+.portfolio__spots-text {
+  font-size: 0.875rem; color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.portfolio__spots-count { color: var(--color-text); }
+
 
 /* ── Reviews ─────────────────────────────────────────────── */
 

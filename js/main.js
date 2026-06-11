@@ -392,6 +392,61 @@ const MobileCtaBar = {
 };
 
 
+/* ── StatCounter ─────────────────────────────────────────── */
+const StatCounter = {
+  init() {
+    const els = document.querySelectorAll('.about__stat-number[data-target]');
+    if (!els.length || !('IntersectionObserver' in window)) return;
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        obs.unobserve(e.target);
+        this._animate(e.target);
+      });
+    }, { threshold: 0.5 });
+    els.forEach(el => obs.observe(el));
+  },
+
+  _animate(el) {
+    const target   = parseInt(el.dataset.target, 10);
+    const suffix   = el.dataset.suffix || '';
+    const duration = 1600;
+    const start    = performance.now();
+    const tick = now => {
+      const p     = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  },
+};
+
+
+/* ── NavActiveLink ───────────────────────────────────────── */
+const NavActiveLink = {
+  init() {
+    const links = document.querySelectorAll('.nav__links a[href^="#"]');
+    if (!links.length || !('IntersectionObserver' in window)) return;
+
+    const sectionMap = new Map();
+    links.forEach(link => {
+      const section = document.getElementById(link.getAttribute('href').slice(1));
+      if (section) sectionMap.set(section, link);
+    });
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        const link = sectionMap.get(e.target);
+        if (link) link.classList.toggle('nav--active', e.isIntersecting);
+      });
+    }, { threshold: 0.25, rootMargin: '-64px 0px -30% 0px' });
+
+    sectionMap.forEach((_, section) => obs.observe(section));
+  },
+};
+
+
 /* ── ExitPopup ───────────────────────────────────────────── */
 const ExitPopup = {
   SESSION_KEY: 'smartweb_popup_shown',
@@ -446,4 +501,6 @@ document.addEventListener('DOMContentLoaded', () => {
   Reviews.init();
   MobileCtaBar.init();
   ExitPopup.init();
+  StatCounter.init();
+  NavActiveLink.init();
 });

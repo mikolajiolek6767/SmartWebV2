@@ -410,7 +410,7 @@ const StatCounter = {
   _animate(el) {
     const target   = parseInt(el.dataset.target, 10);
     const suffix   = el.dataset.suffix || '';
-    const duration = 1600;
+    const duration = 2800;
     const start    = performance.now();
     const tick = now => {
       const p     = Math.min((now - start) / duration, 1);

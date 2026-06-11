@@ -137,7 +137,7 @@ const FaqAccordion = {
 
 /* ── ContactForm ─────────────────────────────────────────── */
 const ContactForm = {
-  FORMSPREE_ID: 'YOUR_FORM_ID',   // ← wpisz swoje ID z formspree.io
+  FORMSPREE_ID: 'xdav1rvr',
 
   init() {
     const $ = id => document.getElementById(id);

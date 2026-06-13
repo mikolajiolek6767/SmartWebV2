@@ -18,14 +18,14 @@
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  background: var(--gradient-primary);
   color: #fff;
   text-decoration: none;
   padding: 0.65rem 1.1rem;
   border-radius: 50px;
   font-size: 0.83rem;
   font-weight: 600;
-  box-shadow: 0 4px 20px rgba(131, 58, 180, 0.45);
+  box-shadow: 0 4px 20px rgba(91, 110, 248, 0.4);
   z-index: 1000;
   transition: transform 0.2s, box-shadow 0.2s;
   white-space: nowrap;
@@ -33,7 +33,7 @@
 
 .float-contact:hover {
   transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 8px 30px rgba(131, 58, 180, 0.65);
+  box-shadow: 0 8px 30px rgba(91, 110, 248, 0.6);
 }
 
 @media (max-width: 768px) {

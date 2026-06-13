@@ -63,16 +63,3 @@
   transform: translateY(0);
 }
 
-/* ── Typewriter cursor ────────────────────────────────── */
-#typewriter-word::after {
-  content: '|';
-  -webkit-text-fill-color: rgba(255,255,255,0.6);
-  color: rgba(255,255,255,0.6);
-  animation: tw-blink 0.75s step-end infinite;
-  margin-left: 1px;
-}
-
-@keyframes tw-blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}

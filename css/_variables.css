@@ -123,7 +123,7 @@ img, video, svg, canvas, iframe {
   margin-bottom: 1rem;
   /* Tekst nigdy nie wychodzi poza kontener */
   overflow-wrap: break-word;
-  word-break: break-word;
+  word-break: normal;
 }
 
 .section-subtitle {

@@ -488,6 +488,77 @@ const ExitPopup = {
 };
 
 
+/* ── TypeWriter ──────────────────────────────────────────── */
+const TypeWriter = {
+  words: ['trenerom', 'barberom', 'dentystom', 'restauracjom', 'firmom'],
+  speed: { type: 75, erase: 45, pause: 2200 },
+
+  init() {
+    this.el = document.getElementById('typewriter-word');
+    if (!this.el) return;
+    this._loop(0, true);
+  },
+
+  _loop(wordIdx, typing) {
+    const word = this.words[wordIdx];
+    const cur  = this.el.textContent;
+    if (typing) {
+      if (cur.length < word.length) {
+        this.el.textContent = word.slice(0, cur.length + 1);
+        setTimeout(() => this._loop(wordIdx, true), this.speed.type);
+      } else {
+        setTimeout(() => this._loop(wordIdx, false), this.speed.pause);
+      }
+    } else {
+      if (cur.length > 0) {
+        this.el.textContent = cur.slice(0, -1);
+        setTimeout(() => this._loop(wordIdx, false), this.speed.erase);
+      } else {
+        this._loop((wordIdx + 1) % this.words.length, true);
+      }
+    }
+  },
+};
+
+
+/* ── ScrollProgress ──────────────────────────────────────── */
+const ScrollProgress = {
+  init() {
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    window.addEventListener('scroll', () => {
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (total > 0 ? (window.scrollY / total) * 100 : 0).toFixed(2) + '%';
+    }, { passive: true });
+  },
+};
+
+
+/* ── CopyPhone ───────────────────────────────────────────── */
+const CopyPhone = {
+  init() {
+    if (!navigator.clipboard) return;
+    const tooltip = document.createElement('div');
+    tooltip.className = 'copy-tooltip';
+    tooltip.textContent = '📋 Skopiowano!';
+    document.body.appendChild(tooltip);
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+      link.addEventListener('click', () => {
+        const number = link.href.replace('tel:', '');
+        navigator.clipboard.writeText(number).catch(() => {});
+        const r = link.getBoundingClientRect();
+        tooltip.style.left = r.left + 'px';
+        tooltip.style.top  = (r.top - 38) + 'px';
+        tooltip.classList.add('copy-tooltip--visible');
+        clearTimeout(this._t);
+        this._t = setTimeout(() => tooltip.classList.remove('copy-tooltip--visible'), 2000);
+      });
+    });
+  },
+};
+
+
 /* ── init ────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   CustomCursor.init();
@@ -503,4 +574,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ExitPopup.init();
   StatCounter.init();
   NavActiveLink.init();
+  TypeWriter.init();
+  ScrollProgress.init();
+  CopyPhone.init();
 });

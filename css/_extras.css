@@ -1,0 +1,78 @@
+/* ── Scroll Progress Bar ──────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-secondary));
+  z-index: 10000;
+  pointer-events: none;
+}
+
+/* ── Floating Contact Button (tylko desktop) ──────────── */
+.float-contact {
+  position: fixed;
+  bottom: 2rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  color: #fff;
+  text-decoration: none;
+  padding: 0.65rem 1.1rem;
+  border-radius: 50px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(131, 58, 180, 0.45);
+  z-index: 1000;
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.float-contact:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 30px rgba(131, 58, 180, 0.65);
+}
+
+@media (max-width: 768px) {
+  .float-contact { display: none; }
+}
+
+/* ── Copy Phone Tooltip ───────────────────────────────── */
+.copy-tooltip {
+  position: fixed;
+  background: rgba(30, 30, 60, 0.95);
+  color: #fff;
+  padding: 0.35rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s, transform 0.2s;
+  border: 1px solid rgba(255,255,255,0.12);
+  white-space: nowrap;
+}
+
+.copy-tooltip--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Typewriter cursor ────────────────────────────────── */
+#typewriter-word::after {
+  content: '|';
+  -webkit-text-fill-color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.6);
+  animation: tw-blink 0.75s step-end infinite;
+  margin-left: 1px;
+}
+
+@keyframes tw-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}

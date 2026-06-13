@@ -28,5 +28,8 @@
 
 @import '_popup.css';
 
-/* 5. Responsywność – na końcu, żeby nadpisywała style sekcji */
+/* 5. Dodatkowe bajery */
+@import '_extras.css';
+
+/* 6. Responsywność – na końcu, żeby nadpisywała style sekcji */
 @import '_responsive.css';
